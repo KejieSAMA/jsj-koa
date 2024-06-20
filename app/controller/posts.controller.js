@@ -48,10 +48,9 @@ class PostsController {
     }
     async getUserPosts(ctx, next) {
         const { userId } = ctx.request.body
-        console.log(userId)
         try {
             const res = await getUserPost({ userId })
-            console.log(res)
+            //console.log(res)
             ctx.body = {
                 code: 0,
                 message: '获取帖子成功',

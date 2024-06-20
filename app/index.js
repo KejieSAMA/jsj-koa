@@ -7,6 +7,7 @@ const userLogin = require('./router/user.router')
 const EnData = require('./router/en.router')
 const Posts = require('./router/posts.router')
 const LearnEnglish = require('./router/learn.router')
+const Commoditys = require('./router/shop.router')
 const {CORS_CONFIG } = require('../config/config.cors')
 
 const app = new Koa();
@@ -20,6 +21,7 @@ app.use(userLogin.routes()).use(userLogin.allowedMethods())
 app.use(EnData.routes()).use(EnData.allowedMethods())
 app.use(LearnEnglish.routes()).use(LearnEnglish.allowedMethods())
 app.use(Posts.routes()).use(Posts.allowedMethods())
+app.use(Commoditys.routes()).use(Commoditys.allowedMethods())
 
 app.on('error', errHandler)
 
