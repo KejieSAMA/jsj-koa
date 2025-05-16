@@ -61,18 +61,24 @@ class UserController {
         }
         console.log('running api => /users/cPsd')
     }
+    // 异步获取用户信息
     async getUserInfo(ctx, next) {
+        // 获取请求体中的用户名
         const { user_name } = ctx.request.body
         try {
+            // 调用getUser函数获取用户信息
             const res = await getUser(user_name)
+            // 如果获取到的用户信息为空，则返回null
             if (!(res ? 1 : 0)) {
                 ctx.body = "null"
                 return
             }
+            // 否则返回用户信息
             ctx.body = res
         } catch (error) {
 
         }
+        // 打印正在运行的api
         console.log('running api => users/getUserInfo')
     }
     async tokenGetUserInfo(ctx,next){
